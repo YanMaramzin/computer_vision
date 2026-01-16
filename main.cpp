@@ -44,9 +44,8 @@ int predictLogReg(const std::vector<double> &features, const std::vector<std::ve
     for (size_t class_idx = 0; class_idx < coefficients.size(); class_idx++) {
         double score = coefficients[class_idx][0]; // Свободный член
 
-        for (size_t i = 1; i < coefficients[class_idx].size(); i++) {
+        for (size_t i = 1; i < coefficients[class_idx].size(); ++i)
             score += coefficients[class_idx][i] * features[i - 1];
-        }
 
         scores[class_idx] = sigmoid(score);
     }
